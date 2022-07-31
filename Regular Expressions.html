@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<h2>JavaScript String Methods</h2>
+
+
+<p id="demo"></p>
+
+<script>
+function is_email(str)
+{
+ // Scott Gonzalez: Email address validation
+  
+  regexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;  
+  
+        if (regexp.test(str))
+        {
+          return true;
+        }
+        else
+        {
+          return false;
+        }
+}
+
+document.write(is_email("admin@example.com"));
+
+document.write("<h2>Javascript Object Methods</h2>");
+var obj1 = { a: 10 };
+        var obj2 = { b: 20 };
+        var obj3 = { c: 30 };
+        var new_obj = Object.assign(obj1, obj2, obj3);
+        document.write("assign method: "+new_obj);
+        
+        const object = {
+property: 'hi geeksforgeeks'
+};
+document.write("<br>isFrozen method: "+Object.isFrozen(object));
+
+
+function fruits() {
+    this.name = 'fruit 1';
+}
+ 
+
+function
+apple() {
+    fruits.call(this);
+}
+ 
+apple.prototype = Object.create(fruits.prototype);
+const app = new apple();
+ 
+document.write("<br>create method: "+app.name);
+
+
+const ob1 = { prop1: 'initial_data'};
+ 
+const ob2 = Object.seal(ob1);
+
+ob2.prop1 = 'sealed_data';
+ 
+document.write("<br>seal method: "+ob2.prop1);
+document.write("<br>isSealed method: "+Object.isSealed(ob2));
+
+document.write("<h2>Classes</h2>");
+function Pen(n, c, p) {
+  this.name = n;
+  this.color= c;
+  this.price = p;
+}
+
+Pen.prototype.showprice = function() {
+  return this.price
+};
+
+const pen1 = new Pen("Luxor", "blue", 50);
+document.write("The price is " + pen1.showprice()); 
+</script>
+
+</body>
+</html>
